@@ -26,7 +26,7 @@ defmodule Text.Vocabulary.Udhr.Multigram do
     Text.Vocabulary.get_vocabulary(language, __MODULE__)
   end
 
-  def file do
+  def filename do
     Path.join(:code.priv_dir(@app), "vocabulary/udhr_multigram.etf")
   end
 

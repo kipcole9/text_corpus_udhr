@@ -25,7 +25,7 @@ defmodule Text.Vocabulary.Udhr.Bigram do
     Vocabulary.get_vocabulary(language, __MODULE__)
   end
 
-  def file do
+  def filename do
     Path.join(:code.priv_dir(@app), "vocabulary/udhr_bigram.etf")
   end
 
