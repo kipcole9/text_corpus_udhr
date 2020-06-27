@@ -7,6 +7,8 @@ defmodule Text.Vocabulary.Udhr.Bigram do
 
   @behaviour Text.Vocabulary
 
+  @app Mix.Project.config[:app]
+
   alias Text.Vocabulary
 
   @default_ngram 2
@@ -24,7 +26,7 @@ defmodule Text.Vocabulary.Udhr.Bigram do
   end
 
   def file do
-    Path.join(:code.priv_dir(:text), "vocabulary/udhr_bigram.etf")
+    Path.join(:code.priv_dir(@app), "vocabulary/udhr_bigram.etf")
   end
 
   def calculate_ngrams(text) do

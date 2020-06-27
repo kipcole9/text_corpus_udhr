@@ -63,7 +63,6 @@ defmodule Text.Corpus.Udhr.MixProject do
     [
       {:text, path: "../text"},
       {:sweet_xml, "~> 0.6", only: [:dev, :test], optional: true},
-      {:meeseeks, "~> 0.15.1", only: [:dev, :test], optional: true},
       {:ex_doc, "~> 0.21", only: [:dev, :release], optional: true},
       {:benchee, "~> 1.0", only: :dev, runtime: false}
     ]
