@@ -13,22 +13,27 @@ defmodule Text.Vocabulary.Udhr.Quadgram do
 
   @default_ngram 4
 
+  @impl Text.Vocabulary
   def load_vocabulary! do
     Vocabulary.load_vocabulary!(__MODULE__)
   end
 
+  @impl Text.Vocabulary
   def ngram_range do
     @default_ngram..@default_ngram
   end
 
+  @impl Text.Vocabulary
   def get_vocabulary(language) do
     Vocabulary.get_vocabulary(language, __MODULE__)
   end
 
+  @impl Text.Vocabulary
   def filename do
     Path.join(:code.priv_dir(@app), "vocabulary/udhr_quadgram.etf")
   end
 
+  @impl Text.Vocabulary
   def calculate_ngrams(text) do
     Vocabulary.calculate_ngrams(text, ngram_range())
   end
