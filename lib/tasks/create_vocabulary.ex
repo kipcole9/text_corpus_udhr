@@ -1,5 +1,5 @@
 if Text.ensure_compiled?(Text.Language.Udhr) do
-  defmodule Mix.Tasks.Text.CreateVocabularies do
+  defmodule Mix.Tasks.Text.Corpus.Udhr.CreateVocabularies do
     @moduledoc """
     Mix task to create the vocabularies for the
     [UDHR](http://research.ics.aalto.fi/cog/data/udhr/) corpus
@@ -13,7 +13,7 @@ if Text.ensure_compiled?(Text.Language.Udhr) do
 
     @doc false
     def run(_) do
-      Text.Language.Udhr.build_vocabularies()
+      Text.Corpus.Udhr.build_vocabularies()
     end
   end
 end

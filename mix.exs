@@ -1,11 +1,11 @@
-defmodule Text.MixProject do
+defmodule Text.Corpus.Udhr.MixProject do
   use Mix.Project
 
   @version "0.1.0"
 
   def project do
     [
-      app: :text,
+      app: :text_corpus_uhdr,
       version: @version,
       docs: docs(),
       elixir: "~> 1.8",
