@@ -5,12 +5,13 @@ runner =
   end)
 
 language = "en"
+corpus = Text.Corpus.Udhr
 
 Benchee.run(
   runner,
   inputs: %{
-    "50 characters" => Enum.take(Text.Streamer.stream_udhr(language, 50), 1),
-    "100 characters" => Enum.take(Text.Streamer.stream_udhr(language, 100), 1),
-    "150 characters" => Enum.take(Text.Streamer.stream_udhr(language, 150), 1),
+     "50 characters" => Enum.take(Text.Streamer.corpus_random_stream(corpus, language, 50), 1),
+    "100 characters" => Enum.take(Text.Streamer.corpus_random_stream(corpus, language, 100), 1),
+    "150 characters" => Enum.take(Text.Streamer.corpus_random_stream(corpus, language, 150), 1),
   }
 )
