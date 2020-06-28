@@ -2,10 +2,12 @@ defmodule Text.Corpus.Udhr do
   @behaviour Text.Corpus
 
   @corpus_dir "./corpus/udhr"
-  @languages_filename "udhr_languages"
-  @languages_path Path.join(@corpus_dir, @languages_filename)
-  @corpus_index File.read!(@languages_path) |> :erlang.binary_to_term
 
+  @languages_filename "vocabulary/udhr_languages"
+  @app_name Mix.Project.config[:app]
+  @languages_path Path.join(:code.priv_dir(@app_name), @languages_filename)
+
+  @corpus_index File.read!(@languages_path) |> :erlang.binary_to_term
   @known_languages Map.keys(@corpus_index)
 
   @known_vocabularies [

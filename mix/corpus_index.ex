@@ -1,11 +1,14 @@
 defmodule Text.Corpus.Udhr.Index do
   @moduledoc false
 
+  @corpus_dir "./corpus/udhr"
+  @external_resource Path.join(@corpus_dir, "index.xml")
+
   import SweetXml
 
-  @corpus_dir "./corpus/udhr"
-  @languages_filename "udhr_languages"
-  @languages_path Path.join(@corpus_dir, @languages_filename)
+  @languages_filename "vocabulary/udhr_languages"
+  @app_name Mix.Project.config[:app]
+  @languages_path Path.join(:code.priv_dir(@app_name), @languages_filename)
 
   @corpus_index @corpus_dir
           |> Path.join(["index.xml"])
