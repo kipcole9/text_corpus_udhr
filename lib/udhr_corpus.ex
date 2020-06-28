@@ -1,26 +1,12 @@
 defmodule Text.Corpus.Udhr do
   @behaviour Text.Corpus
 
-  import SweetXml
-
   @corpus_dir "./corpus/udhr"
+  @languages_filename "udhr_languages"
+  @languages_path Path.join(@corpus_dir, @languages_filename)
+  @corpus_index File.read!(@languages_path) |> :erlang.binary_to_term
 
-  @corpus @corpus_dir
-          |> Path.join(["index.xml"])
-          |> File.read!()
-          |> xpath(~x"//udhrs/udhr"l,
-            iso639: ~x"./@iso639-3"s,
-            bcp47: ~x"./@bcp47"s,
-            script: ~x"./@iso15924"s,
-            stage: ~x"./@stage"I,
-            name: ~x"./@n"s,
-            file: ~x"./@f"s
-          )
-          |> Enum.map(&Map.pop(&1, :bcp47))
-          |> Enum.filter(fn {_k, v} -> v[:stage] >= 4 end)
-          |> Map.new()
-
-  @known_languages Map.keys(@corpus)
+  @known_languages Map.keys(@corpus_index)
 
   @known_vocabularies [
     Text.Vocabulary.Udhr.Quadgram,
@@ -66,13 +52,13 @@ defmodule Text.Corpus.Udhr do
 
   @doc false
   def udhr_language_file(language) do
-    udhr_corpus()
+    udhr_corpus_index()
     |> Map.fetch!(language)
     |> udhr_corpus_file
   end
 
   @doc false
-  def udhr_corpus_file(%{file: file}) do
+  def udhr_corpus_file(file) do
     "udhr_" <> file <> ".txt"
   end
 
@@ -86,8 +72,8 @@ defmodule Text.Corpus.Udhr do
   index keyed by the BCP47 language name.
 
   """
-  def udhr_corpus do
-    @corpus
+  def udhr_corpus_index do
+    @corpus_index
   end
 
 end

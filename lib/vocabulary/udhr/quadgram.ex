@@ -25,7 +25,7 @@ defmodule Text.Vocabulary.Udhr.Quadgram do
 
   @impl Text.Vocabulary
   def get_vocabulary(language) do
-    Vocabulary.get_vocabulary(language, __MODULE__)
+    Text.Vocabulary.get_vocabulary(__MODULE__, language)
   end
 
   @impl Text.Vocabulary
