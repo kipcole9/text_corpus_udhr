@@ -6,7 +6,7 @@ defmodule Text.Corpus.Udhr.Index do
 
   import SweetXml
 
-  @languages_filename "vocabulary/udhr_languages"
+  @languages_filename "vocabulary/udhr_languages.etf"
   @app_name Mix.Project.config[:app]
   @languages_path Path.join(:code.priv_dir(@app_name), @languages_filename)
 

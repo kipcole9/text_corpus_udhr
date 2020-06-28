@@ -1,9 +1,16 @@
 defmodule Text.Corpus.Udhr do
+  @moduledoc """
+
+
+
+
+  """
+
   @behaviour Text.Corpus
 
   @corpus_dir "./corpus/udhr"
 
-  @languages_filename "vocabulary/udhr_languages"
+  @languages_filename "vocabulary/udhr_languages.etf"
   @app_name Mix.Project.config[:app]
   @languages_path Path.join(:code.priv_dir(@app_name), @languages_filename)
 
@@ -71,7 +78,7 @@ defmodule Text.Corpus.Udhr do
 
   @doc """
   Returns the map of the UDHR corpus
-  index keyed by the BCP47 language name.
+  index keyed by the BCP-47 language name.
 
   """
   def udhr_corpus_index do
