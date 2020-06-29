@@ -5,7 +5,7 @@ defmodule Text.Corpus.Udhr.MixProject do
 
   def project do
     [
-      app: :text_corpus_uhdr,
+      app: :text_corpus_udhr,
       version: @version,
       docs: docs(),
       elixir: "~> 1.8",
