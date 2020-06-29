@@ -23,14 +23,15 @@ defmodule Text.Corpus.Udhr do
     Text.Vocabulary.Udhr.Multigram
   ]
 
-  @doc """
-  Returns names of the languages in which
-  the UDHR corpus is available.
-
-  """
   @impl Text.Corpus
   def known_languages do
     @known_languages
+  end
+
+  @impl Text.Corpus
+  def classify(text, options \\ []) do
+    options = Keyword.put(options, :corpus, __MODULE__)
+    Text.Language.classify(text, options)
   end
 
   @impl Text.Corpus
@@ -76,11 +77,7 @@ defmodule Text.Corpus.Udhr do
     @corpus_dir
   end
 
-  @doc """
-  Returns the map of the UDHR corpus
-  index keyed by the BCP-47 language name.
-
-  """
+  @doc false
   def udhr_corpus_index do
     @corpus_index
   end

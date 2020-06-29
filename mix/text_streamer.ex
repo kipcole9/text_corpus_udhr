@@ -17,7 +17,7 @@ defmodule Text.Streamer do
     `Text.Corpus` behaviour
 
   * `language` is a BCP-47 language tag in the set
-    of `Text.Language.known_languages/0`
+    of `corpus.known_languages/0`
 
   * `sample_length` is a the length of the string
     in graphemes to be sampled and tested. For each
@@ -59,7 +59,7 @@ defmodule Text.Streamer do
     `Text.Corpus` behaviour
 
   * `language` is a BCP47 language tag in the set
-    of `Text.Language.known_languages/0`
+    of `corpus.known_languages/0`
 
   * `sample_length` is a the length of the string
     in graphemes to be sampled and tested. For each
@@ -78,7 +78,7 @@ defmodule Text.Streamer do
     defautls is `Text.Language.Classifier.NaiveBayesian`
 
   * `:vocabulary` is the vocabulary to be used
-    from the set of `Text.Vocabulary.known_vocabularies/0`.
+    from the set of `corpus.known_vocabularies/0`.
     The default is `Text.Vocabulary.Udhr.Multigram`.
 
   ## Returns
