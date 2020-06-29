@@ -18,7 +18,7 @@ defmodule Text.Corpus.Udhr.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       dialyzer: [
         ignore_warnings: ".dialyzer_ignore_warnings",
-        plt_add_apps: ~w(inets jason mix)a
+        plt_add_apps: ~w(inets mix)a
       ]
     ]
   end
@@ -63,10 +63,11 @@ defmodule Text.Corpus.Udhr.MixProject do
 
   defp deps do
     [
-      {:text, path: "../text"},
+      {:text, "~> 0.2"},
       {:sweet_xml, "~> 0.6", only: [:dev, :test], optional: true},
       {:ex_doc, "~> 0.21", only: [:dev, :release], optional: true},
-      {:benchee, "~> 1.0", only: :dev, runtime: false}
+      {:benchee, "~> 1.0", only: :dev, runtime: false},
+      {:dialyxir, "~> 1.0", only: [:dev], runtime: false, optional: true}
     ]
   end
 

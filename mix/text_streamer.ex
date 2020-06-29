@@ -95,7 +95,7 @@ defmodule Text.Streamer do
     corpus_random_stream(corpus, language, sample_length)
     |> Enum.reduce_while({0, 0, 0}, fn string, {count, good, bad} ->
       {count, good, bad} =
-        case Text.detect(string, classifier: classifier, vocabulary: vocabulary) do
+        case Text.Language.classify(string, classifier: classifier, vocabulary: vocabulary) do
           [{lang, _} | _rest] when lang == language -> {count + 1, good + 1, bad}
           _other -> {count + 1, good, bad + 1}
         end
